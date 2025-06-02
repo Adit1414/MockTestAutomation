@@ -6,6 +6,8 @@ import pandas as pd
 from docx import Document
 from PromptsDict import prompt_templates  # Load the prompt dictionary
 
+#  Working, no topic repeated
+
 # === CONFIGURATION ===
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -14,17 +16,24 @@ EXCEL_PATH = 'Book1.xlsx'
 CHUNK_SIZE = 5
 
 # === UTILITIES ===
-def pick_random_topics(num=5, excel_path=EXCEL_PATH):
+def load_all_topics(excel_path=EXCEL_PATH):
     try:
         df = pd.read_excel(excel_path)
         topic_column = df.columns[0]
         topics = df[topic_column].dropna().tolist()
-        if len(topics) < num:
-            raise ValueError(f"Only {len(topics)} topics available, but {num} requested.")
-        return random.sample(topics, num)
+        random.shuffle(topics)
+        return topics
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"❌ Error loading topics: {e}")
         return []
+
+def validate_topic_capacity(plan, total_topics):
+    total_chunks_requested = sum(num // CHUNK_SIZE for num in plan.values())
+    if total_chunks_requested > len(total_topics) // CHUNK_SIZE:
+        print(f"❌ Not enough unique topics to generate all question chunks without duplication.")
+        print(f"💡 Topics available: {len(total_topics)}, Questions requested: {total_chunks_requested * CHUNK_SIZE}")
+        exit(1)
+
 
 def format_topics(topics_list):
     return "\n".join([f"{i+1}. {topic}" for i, topic in enumerate(topics_list)]) 
@@ -44,6 +53,15 @@ be very precise and unbiased, check very carefully
 you dont need to repeat the questions and answers
 just thoroughly check them if they are written correctly and then tell me for each question if it is correct or not, free of discrepancies or not. Are the answer keys correct? Are the solutions logical? Are any options misleading or repeated?
 if there are any issues, tell me what and where they are, then tell me how to fix them
+Example format for verifying
+Question 1 - Correct
+Question 2 - Correct
+Question 3 - INCORRECT - ANSWER KEY MISMATCH
+Question 4 - Correct
+Question 5 - Correct
+<Rewritten Version of the incorrect question - whole question, answer and solution of any incorrect questions>
+
+this is only an example, be completely unbiased in determining the correctness and incorrectness. check and recheck multiple times the correctness
 Here is the text:
 {questions_text}
 """
@@ -96,31 +114,45 @@ def get_user_question_plan():
     return plan
 
 # === GENERATION ===
-def generate_all_prompts_from_plan(plan):
+def generate_all_prompts_from_plan(plan, all_topics):
     all_prompts = []
+    topic_index = 0
+
     for qtype, total_questions in plan.items():
         num_chunks = total_questions // CHUNK_SIZE
         print(f"\n🧠 Generating {total_questions} '{qtype}' questions in {num_chunks} chunks...")
         for _ in range(num_chunks):
-            topics_chunk = pick_random_topics(CHUNK_SIZE)
+            topics_chunk = all_topics[topic_index: topic_index + CHUNK_SIZE]
+            topic_index += CHUNK_SIZE
             prompt = build_prompt_from_template(topics_chunk, qtype)
             all_prompts.append((qtype, prompt))
     return all_prompts
 
+
 # === MAIN EXECUTION ===
 if __name__ == "__main__":
     user_plan = get_user_question_plan()
-    generated_prompts = generate_all_prompts_from_plan(user_plan)
+    all_topics = load_all_topics()
+    validate_topic_capacity(user_plan, all_topics)
+    generated_prompts = generate_all_prompts_from_plan(user_plan, all_topics)
+
     questions_output = ""
     verification_output = ""
+
     for qtype, prompt in generated_prompts:
         print(f"{qtype} : {prompt} \n\n")
-        # print(f"\n⚙️ Calling GPT for: {qtype}")
+        
+        # # Actual
         generated_questions = call_gpt(prompt)
         questions_output += generated_questions + "\n\n"
         verification = call_gpt(verify_prompt(generated_questions))
         verification_output += verification + "\n\n"
+        
+        # Testing
+        # questions_output += "generated_questions" + "\n\n"
+        # verification_output += "verification" + "\n\n"
 
     save_to_docx(questions_output, "Questions.docx")
     save_to_docx(verification_output, "Verifications.docx")
     print("\n✅ Mock paper generated and saved to Word document.")
+

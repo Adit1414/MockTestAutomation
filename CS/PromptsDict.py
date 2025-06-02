@@ -9,9 +9,9 @@ i want them to be really analytical, ones that take several seconds of thought a
 so please give appropriately tough questions so please give appropriately tough questions 
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - Match The Following type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. 
-make sure to follow the format to the letter. make sure that all the options provided are distinct from each other intraquestion, and also make sure that the correct option is distinct interquestion. there should be variations in the correct options. make sure that the option that the answer key points to matches with the solution. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. and use this VERY exact format -
+make sure to follow the format to the letter. make sure that all the options provided are distinct from each other intraquestion, and also make sure that the correct option is distinct interquestion. there should be variations in the correct options. make sure that the option that the answer key points to matches with the solution. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--" and use this VERY exact format -
 
-Example 1:
+--Question Starting--
 71.	Match the following network types with their most appropriate characteristics:
 Network Type	Characteristic
 I.	LAN	A.	Covers a metropolitan area like a city
@@ -31,7 +31,7 @@ Solution:
 •	PAN: Personal Area Network is a short-range network around a person, using Bluetooth or USB connections, for devices like smartphones, smartwatches, etc.
 Hence, Option (1) is the right answer.
 
-Example 2:
+--Question Starting--
 73.	Match the following components of an SRS document with their correct descriptions :
 SRS Document	Description
 I.	Functional Requirements	A.	Constraints on resources such as response time
@@ -60,9 +60,9 @@ when i ask for extremely difficult questions, i MEAN extremely difficult. no dir
 i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions so please give appropriately tough questions 
 answer key: {answer_key}
-arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - MCQ type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. and use this VERY exact format -
+arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - MCQ type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--" and use this VERY exact format -
 
-Example 1:
+--Question Starting--
 59.	A company sets up a data communication system between its branch offices using leased lines and routers. The network experiences delays and occasional packet losses during peak hours. The company’s IT department decides to analyze the issue by inspecting transmission delays, propagation delays, and the role of switching techniques and protocols used for error handling.
 Which of the following best explains the delay that increases with packet queue build-up at routers during peak traffic?
 (1)	Propagation delay
@@ -77,7 +77,7 @@ Solution:
 •	(Incorrect): Processing delay is minor and occurs at headers inspection or route lookup.
 Hence, Option (3) is the right answer.
 
-Example 2:
+--Question Starting--
 62.	If a graph has V vertices and E edges, and is connected and acyclic, then E must be:
 (1)	V²
 (2)	V-1
@@ -99,9 +99,9 @@ when i ask for extremely difficult questions, i MEAN extremely difficult. no dir
 i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions so please give appropriately tough questions 
 answer key: {answer_key}
-arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - 2 statement type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 sentence each and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. and use this VERY exact format -
+arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - 2 statement type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 sentence each and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--" and use this VERY exact format -
 
-Example 1:
+--Question Starting--
 67.	Consider the following two statements related to parsing techniques:
 Statement I: LL(1) parsers cannot handle left-recursive grammars and rely on predictive parsing using a single lookahead symbol.
 Statement II: LR parsers perform better than LL parsers in terms of grammar acceptance because they can handle a wider class of context-free grammars including left-recursive ones.
@@ -116,7 +116,7 @@ Solution:
 •	II(Correct): LR parsers (including SLR, LALR, and canonical LR) use bottom-up parsing. They can handle left recursion, left factoring, and more complex grammar constructs. Thus, they accept a strictly larger set of context-free grammars than LL parsers.
 Hence, Option (1) is the right answer.
 
-Example 2:
+--Question Starting--
 46.	Consider the following statements:
 Statement I: A queue can be efficiently implemented using two stacks, but the time complexity of the enqueue and dequeue operations may vary based on the chosen strategy.
 Statement II: A circular queue overcomes the limitation of a linear queue by reusing vacant spaces created after dequeue operations, thereby optimizing memory usage.
@@ -142,9 +142,9 @@ i want them to be really analytical, ones that take several seconds of thought a
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
-create five - 3 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - format - 
+create five - 3 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - make sure to start every question with "--Question Starting--", and use this VERY exact format - 
 
-Example 1:
+--Question Starting--
 Which of the following statements about firewalls and intrusion detection systems are correct?
 I.	A firewall can prevent unauthorized access from outside the network but not within it.
 II.	Intrusion Detection Systems (IDS) can take automatic action to block malicious activity.
@@ -161,7 +161,7 @@ Solution:
 •	III(Correct): Stateful firewalls keep track of the connection state and can apply rules accordingly.
 Hence, Option (2) is the right answer.
 
-Example 2:
+--Question Starting--
 Consider the following three statements related to Registers and Counters:
 I.	A 4-bit Johnson counter cycles through 2⁴ = 16 distinct states before repeating.
 II.	In a ring counter with n flip-flops, the number of states is exactly n.
@@ -195,10 +195,10 @@ i want them to be really analytical, ones that take several seconds of thought a
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
-create five - 4 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - format - 
+create five - 4 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - make sure to start every question with "--Question Starting--", and use this VERY exact format - 
 
-Example 1:
-Which of the following statements about FCFS (First Come First Serve) scheduling are correct?
+--Question Starting--
+1. Which of the following statements about FCFS (First Come First Serve) scheduling are correct?
 I.	FCFS scheduling can lead to convoy effect.
 II.	Average waiting time is minimum in FCFS.
 III.	FCFS scheduling is non-preemptive.
@@ -216,8 +216,8 @@ Solution:
 •	IV(Correct): FCFS schedules purely based on arrival time.
 Hence, Option (3) is the right answer.
 
-Example 2:
-Which of the following statements about Windows OS internals and management features are correct?
+--Question Starting--
+2. Which of the following statements about Windows OS internals and management features are correct?
 I.	Windows uses a hybrid kernel that combines features of monolithic and microkernel architectures.
 II.	Windows Task Scheduler uses a preemptive priority-based scheduling policy for managing processes.
 III.	NTFS (New Technology File System) in Windows does not support file-level security or journaling.
@@ -244,10 +244,10 @@ i want them to be really analytical, ones that take several seconds of thought a
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
-create five - 5 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - format - 
+create five - 5 statement type questions, one from each topic - very ugc net computer science type, and very analytical.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. remember to add the hence line at the end of each solution. arrange the options such that the answer key is true. very very long and better explanation and dont type anything like topic or intro etc. just what i asked. - make sure to start every question with "--Question Starting--", and use this VERY exact format - 
 
-example 1:
-15\.	Consider the following statements regarding pipeline and vector processing:
+--Question Starting--
+15.	Consider the following statements regarding pipeline and vector processing:
 I.	In a non-pipelined processor, the total execution time for n instructions is proportional to n × k, where k is the number of stages.
 II.	Vector processors use deep pipelines and are optimized for operations on large arrays.
 III.	Instruction-level parallelism (ILP) is primarily exploited in scalar pipeline architectures, not in vector processors.
@@ -272,8 +272,8 @@ Control hazard – due to branch/instruction flow changes
 •	V(Correct): In ideal pipelining, time to execute n instructions = n + k - 1 cycles, where k is the number of stages. This accounts for pipeline filling and draining.
 Hence, Option (2) is the right answer.
 
-Example 2:
-21\.	Consider the following statements about various AI algorithms and techniques:
+--Question Starting--
+21.	Consider the following statements about various AI algorithms and techniques:
 I.	In A\* algorithm, the evaluation function f(n) = g(n) + h(n) ensures optimality only if h(n) is admissible and consistent.
 II.	Hill Climbing algorithm is complete and guarantees a global optimum if the heuristic function is monotonic.
 III.	Minimax algorithm assumes that the opponent plays optimally and is mainly used in two-player deterministic games.
@@ -300,9 +300,9 @@ when i ask for extremely difficult questions, i MEAN extremely difficult. no dir
 i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions 
 answer key: {answer_key}
-arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. Create 5 - single liner type questions like this, one question should be from each topic provided - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. and use this VERY exact format -
+arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. Create 5 - single liner type questions like this, one question should be from each topic provided - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", and use this VERY exact format -
 
-Example 1:
+--Question Starting--
 40.	A team of developers built an e-commerce web application using the MERN stack. During staging, they conducted performance testing using JMeter and identified issues with concurrent request handling. The security team later flagged improper session termination and vulnerable endpoints. Before production deployment, they integrated the CI/CD pipeline with automated testing tools and containerized the app using Docker. 
 Which of the following doesn’t address the issues raised in the testing and deployment stages?
 (1)	Implementing rate-limiting and horizontal scaling can improve concurrent request handling.
@@ -317,7 +317,7 @@ Solution:
 •	(Correct): Secure session handling (e.g., logout, timeout) and input validation (e.g., sanitization) are crucial to defend against threats like XSS, CSRF, and injection attacks.
 Hence, Option (2) is the right answer.
 
-Example 2:
+--Question Starting--
 35.	A university maintains a single table STUDENT_COURSE with fields: StudentID, StudentName, CourseID, CourseName, InstructorName. It was observed that if a student takes multiple courses, their name and ID are repeated, and if a course is taught by different instructors over time, course-instructor combinations also repeat. After complaints about data inconsistency and redundancy, a normalization review was proposed.
 Which of the following normalization strategies would best eliminate the redundancy and anomalies described in the above case?
 (1)	Decompose the table into separate relations for Students and Courses to achieve Second Normal Form (2NF)
@@ -341,9 +341,10 @@ so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
 create five - 5 statement type questions, one from each topic - very ugc net computer science type, and very analytical. 
-Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. arrange the options such that the answer key is true. remember to add the hence line at the end of each solution. create 5 assertion reasoning type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 setence each and dont type anything like topic name or intro etc. just what i asked. and use this VERY EXACT format - format -
-Example 1:
-Given below are two statements, one is labelled as Assertion (A) and the other is
+Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. arrange the options such that the answer key is true. remember to add the hence line at the end of each solution. create 5 assertion reasoning type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 setence each and dont type anything like topic name or intro etc. just what i asked. make sure to start every question with "--Question Starting--" and use this VERY EXACT format - format -
+
+--Question Starting--
+1. Given below are two statements, one is labelled as Assertion (A) and the other is
 labelled as Reason (R).
 Assertion (A): If a system is deadlocked, no process can proceed further until resources
 are released. Reason (R): In a deadlock, each process holds some resources and waits indefinitely for others, leading to a circular wait. In light of the above statements, choose the most appropriate answer from the options
@@ -356,8 +357,8 @@ action (like killing a process) is taken.  (Reason is Correct): Circular wait
 deadlock.
 Hence, Option (1) is the right answer
 
-Example 2:
-12\.	Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R).
+--Question Starting--
+2.	Given below are two statements, one is labelled as Assertion (A) and the other is labelled as Reason (R).
 Assertion (A): Dead code elimination helps in reducing the size of the executable file.
 Reason (R): Dead code refers to program statements that are syntactically incorrect and cause compilation errors.
 In light of the above statements, choose the most appropriate answer from the options below:
