@@ -39,61 +39,62 @@ def count_tokens(text):
 
 # --- Input Section ---
 input_text = """
-Single liner type
-topics - 
-1. Software Configuration Management: Change Control and Version Control; Software 
-Reuse, Software Re-engineering,  Reverse Engineering. 
-2. Data Warehousing and Data Mining: Data Modeling for Data Warehouses, Concept 
-Hierarchy, OLAP and OLTP; Association Rules, Classification, Clustering, Regression,  Support Vector Machine, K-Nearest Neighbour, Hidden Markov Model, Summarization,  
-Dependency Modeling,  Link Analysis,  Sequencing Analysis, Social Network Analysis.  
-3.  
-Graph Theory: Simple Graph, Multigraph, Weighted Graph, Paths and Circuits, Shortest  
-Paths in Weighted Graphs, Eulerian Paths and Circuits, Hamiltonian Paths and Circuits, 
-Planner graph, Graph Coloring, Bipartite Graphs, Trees and Rooted Trees, Prefix Codes, 
-Tree Traversals, Spanning Trees and Cut-Sets. 
-4. Software Requirements: Functional and Non-Functional Requirements;   
-Eliciting 
-Requirements, Developing Use Cases, Requirement Analysis and Modelling;  Requirements 
-Review, Software Requirment and Specification (SRS) Document.   
-5. Big Data Systems: Big Data Characteristics, Types of Big Data, Big Data Architecture, 
-Introduction to Map-Reduce and Hadoop;  Distributed File System, HDFS. 
-NOSQL: NOSQL and Query Optimization; Different NOSQL Products, Querying and 
-Managing NOSQL; Indexing and Ordering Data Sets; NOSQL in Cloud. 
+MTF : Match the Following type
+topics -
+1. Register Transfer and Microoperations: Register Transfer Language, Bus and Memory Transfers, Arithmetic, Logic and Shift Microoperations.
+2. File and Input/Output Systems: Access Methods, Directory and Disk Structure; File System Mounting, File Sharing, File-System Structure and Implementation; Directory Implementation, Allocation Methods, Free-Space Management, Efficiency and Performance; Recovery, I/O Hardware, Application I/O Interface, Kernel I/O Subsystem, Transforming I/O Requests to Hardware Operations.
+3. Data Communication: Components of a Data Communication System, Simplex, Half Duplex and Duplex Modes of Communication; Analog and Digital Signals; Noiseless and Noisy Channels; Bandwidth, Throughput and Latency; Digital and Analog Transmission; Data Encoding and Modulation Techniques; Broadband and Baseband Transmission; Multiplexing, Transmission Media, Transmission Errors, Error Handling Mechanisms.
+4. Web Programming: HTML, DHTML, XML, Scripting, Java, Servlets, Applets.
+5. Storage Management: Mass-Storage Structure, Disk Structure, Scheduling and Management, RAID Structure.
+
 difficulty -  EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
 when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
 i want them to be really analytical, ones that take several seconds of thought atleast
-so please give appropriately tough questions 
-arrange the options such that the answer key is true. create 5 - single liner type questions like this, one question should be from each topic provided - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. and use this VERY exact format -
+so please give appropriately tough questions so please give appropriately tough questions
+answer key: 3, 2, 1, 2, 2
+arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create 5 - Match The Following type questions like this - very ugc net type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions.
+make sure to follow the format to the letter. make sure that all the options provided are distinct from each other intraquestion, and also make sure that the correct option is distinct interquestion. there should be variations in the correct options. make sure that the option that the answer key points to matches with the solution. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY EXACT format -
 
-Example 1:
-40.	A team of developers built an e-commerce web application using the MERN stack. During staging, they conducted performance testing using JMeter and identified issues with concurrent request handling. The security team later flagged improper session termination and vulnerable endpoints. Before production deployment, they integrated the CI/CD pipeline with automated testing tools and containerized the app using Docker. 
-Which of the following doesn’t address the issues raised in the testing and deployment stages?
-(1)	Implementing rate-limiting and horizontal scaling can improve concurrent request handling.
-(2)	CI/CD pipelines alone are sufficient to prevent all security vulnerabilities.
-(3)	Docker ensures consistent environments, aiding in reproducible deployment.
-(4)	Proper session management and input validation help reduce attack surfaces.
-Answer Key: 2
+--Question Starting--
+71.     Match the following network types with their most appropriate characteristics:
+Network Type    Characteristic
+I.      LAN     A.      Covers a metropolitan area like a city
+II.     MAN     B.      Suitable for intercontinental communication
+III.    WAN     C.      Typically uses Ethernet technology
+IV.     PAN     D.      Operates within the range of a person
+Choose the correct answer from the options given below:
+(1)     I-C, II-A, III-B, IV-D
+(2)     I-C, II-D, III-A, IV-B
+(3)     I-B, II-C, III-A, IV-D
+(4)     I-B, II-A, III-D, IV-C
+Answer Key: 1
 Solution:
-•	(Correct): JMeter flagged concurrency issues; rate-limiting prevents abuse, and horizontal scaling (adding servers/containers) enhances parallel processing.
-•	(Incorrect): CI/CD automates testing and deployment, but cannot guarantee complete security unless integrated with security scanners, code audits, or DevSecOps practices.
-•	(Correct): Containerization guarantees that the application runs the same across environments, reducing “works-on-my-machine” issues.
-•	(Correct): Secure session handling (e.g., logout, timeout) and input validation (e.g., sanitization) are crucial to defend against threats like XSS, CSRF, and injection attacks.
-Hence, Option (2) is the right answer.
+•       LAN: Local Area Network typically uses Ethernet or Wi-Fi and operates over a small area like an office or campus.
+•       MAN: Metropolitan Area Network spans across a city, linking multiple LANs, often via fiber optics or wireless microwave transmission.
+•       WAN: WAN Wide Area Network connects networks over large geographical areas, often intercontinental, e.g., the Internet.
+•       PAN: Personal Area Network is a short-range network around a person, using Bluetooth or USB connections, for devices like smartphones, smartwatches, etc.
+Hence, Option (1) is the right answer.
 
-Example 2:
-35.	A university maintains a single table STUDENT_COURSE with fields: StudentID, StudentName, CourseID, CourseName, InstructorName. It was observed that if a student takes multiple courses, their name and ID are repeated, and if a course is taught by different instructors over time, course-instructor combinations also repeat. After complaints about data inconsistency and redundancy, a normalization review was proposed.
-Which of the following normalization strategies would best eliminate the redundancy and anomalies described in the above case?
-(1)	Decompose the table into separate relations for Students and Courses to achieve Second Normal Form (2NF)
-(2)	Keep the table intact, but enforce composite keys to satisfy First Normal Form (1NF)
-(3)	Separate instructor data to eliminate transitive dependencies and achieve Third Normal Form (3NF)
-(4)	Apply Boyce-Codd Normal Form (BCNF) directly to remove all types of multivalued dependencies
-Answer Key: 3
+--Question Starting--
+73.     Match the following components of an SRS document with their correct descriptions :
+SRS Document    Description
+I.      Functional Requirements A.      Constraints on resources such as response time
+II.     Non-Functional Requirements     B.      What the system should do in terms of behavior
+III.    External Interface Requirements C.      Describes interactions with hardware/software
+IV.     Design Constraints      D.      Limitations on tools, standards, or implementation
+Choose the correct answer from the options given below:
+(1)     I-B, II-A, III-C, IV-D
+(2)     I-C, II-D, III-A, IV-B
+(3)     I-B, II-C, III-A, IV-D
+(4)     I-A, II-C, III-B, IV-D
+Answer Key: 1
 Solution:
-•	(Incorrect): This only eliminates partial dependencies, which occur when non-prime attributes are dependent on part of a composite key. But in the case, InstructorName depends on CourseName, which is a transitive dependency, not a partial one.
-•	(Incorrect): 1NF only ensures atomicity of values and removes repeating groups. This won’t solve redundancy or update anomalies in the case described.
-•	(Correct): This is the most suitable step. Here, InstructorName is dependent on CourseName, and not directly on the primary key. This is a transitive dependency, and to move to 3NF, we should separate course-instructor mapping into another table.
-•	(Incorrect): BCNF handles anomalies due to overlapping candidate keys, but the case here is about transitive dependencies, not key overlaps. Also, multivalued dependencies are handled in Fourth Normal Form (4NF), not BCNF.
-Hence, Option (3) is the right answer.
+•       Functional Requirements: It defines what the system should do, e.g., "The system shall allow users to log in."
+•       Non-Functional Requirements: It specifies quality attributes, like performance, reliability, response time, etc.
+•       External Interface Requirements: Include how the system interacts with hardware, users, or other software systems.
+•       Design Constraints: Define restrictions on development, such as using a particular database, language, or adhering to specific standards.
+Hence, Option (1) is the right answer.
+
 """
 output_text = """
 Absolutely! Here are **five** extremely **analytical**, **difficult** single-liner questions, each from one of the five topics you mentioned. Each is distinct, precise, and built for advanced, high-level reasoning. All options have been **carefully cross-checked** multiple times, ensuring no errors, overlaps, or inconsistencies. Let’s dive in:

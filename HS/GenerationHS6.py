@@ -5,7 +5,7 @@ import textwrap
 import os
 import pandas as pd
 from docx import Document
-from PromptsDict import prompt_templates  # Load the prompt dictionary
+from PromptsDictHS import prompt_templates  # Load the prompt dictionary
 import winsound
 from datetime import datetime
 
@@ -14,12 +14,12 @@ from datetime import datetime
 # === CONFIGURATION ===
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 MODEL = 'gpt-4-turbo'
-EXCEL_PATH = "CS\\Syllabus.xlsx"
+EXCEL_PATH = "HS\\SyllabusHS.xlsx"
 CHUNK_SIZE = 5
 TESTING = False
-QUESTIONS_PATH = "CS\\Questions.docx"
-VERIFICATIONS_PATH = "CS\\Verifications.docx"
-SKIPPED_PATH = "CS\\Skipped.docx"
+QUESTIONS_PATH = "HS\\QuestionsHS.docx"
+VERIFICATIONS_PATH = "HS\\VerificationsHS.docx"
+SKIPPED_PATH = "HS\\SkippedHS.docx"
 skipped_chunks = []
 
 
@@ -113,7 +113,7 @@ def check_file_access(filename):
     except Exception as e:
         raise IOError(f"❌ Cannot access {filename}. Please close it if open. Details: {e}")
     
-def save_to_docx(content, filename="Questions.docx"):
+def save_to_docx(content, filename="QuestionsHS.docx"):
     try:
         with open(filename, 'a'):
             pass  # Attempt to open for append to check if it's locked
@@ -127,7 +127,7 @@ def save_to_docx(content, filename="Questions.docx"):
     except Exception as e:
         raise IOError(f"❌ Failed to save {filename}. Details: {e}")
 
-def save_response(text, folder="CS/RawResponses"):
+def save_response(text, folder="HS/RawResponses"):
     # Make sure folder exists
     os.makedirs(folder, exist_ok=True)
     
@@ -243,7 +243,7 @@ if __name__ == "__main__":
 
         # if not TESTING and len(questions_split) != CHUNK_SIZE:
         #     print("❌ Error: GPT did not return exactly 5 questions. Aborting.")
-        #     save_response(generated_chunk, folder="CS/BrokenChunks")
+        #     save_response(generated_chunk, folder="HS/BrokenChunks")
         #     winsound.PlaySound("WrongBuzzer.wav", winsound.SND_FILENAME)
         #     exit(1)
         
