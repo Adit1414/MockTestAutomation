@@ -16,7 +16,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 MODEL = 'gpt-4-turbo'
 EXCEL_PATH = "CS\\Syllabus.xlsx"
 CHUNK_SIZE = 5
-TESTING = False
+TESTING = True
 QUESTIONS_PATH = "CS\\Questions.docx"
 VERIFICATIONS_PATH = "CS\\Verifications.docx"
 SKIPPED_PATH = "CS\\Skipped.docx"
