@@ -24,6 +24,29 @@ skipped_chunks = []
 
 
 # === UTILITIES ===
+def get_user_question_plan():
+    print("📋 Available Question Types:")
+    for i, qtype in enumerate(prompt_templates.keys(), start=1):
+        print(f"{i}. {qtype}")
+    
+    plan = {}
+    while True:
+        try:
+            qtype_input = input("✍️ Enter question type name (or press Enter to finish): ").strip()
+            if qtype_input == "":
+                break
+            if qtype_input not in prompt_templates:
+                print("❌ Invalid question type. Try again.")
+                continue
+            count = int(input(f"🔢 How many questions of type '{qtype_input}' do you want? (must be multiple of {CHUNK_SIZE}): "))
+            if count % CHUNK_SIZE != 0:
+                print(f"⚠️ Must be a multiple of {CHUNK_SIZE}. Try again.")
+                continue
+            plan[qtype_input] = plan.get(qtype_input, 0) + count
+        except ValueError:
+            print("❌ Invalid number. Please try again.")
+    return plan
+
 def load_all_topics(excel_path=EXCEL_PATH):
     try:
         df = pd.read_excel(excel_path)
@@ -52,30 +75,27 @@ def build_prompt_from_template(topics_list, template_key):
     template = prompt_templates.get(template_key, "")
     return template.format(topics=topics_str, answer_key=randomized_answer_key)
 
-def verify_prompt(questions_text):
-    return f"""
-VERIFICATION: im gonna send you 5 questions at once
-you have to check whether or not they are correct
-question, answer key, solution etc all should be 100% correct, if there is even a tiny fault or discrepancy, tell me
-be very precise and unbiased, check very carefully
-you dont need to repeat the questions and answers
-just thoroughly check them if they are written correctly and then tell me for each question if it is correct or not, free of discrepancies or not. Are the answer keys correct? Are the solutions logical? Are any options misleading or repeated?
-if there are any issues, tell me what and where they are, then tell me how to fix them
-Example format for verifying
-Question 1 - Correct
-Question 2 - Correct
-Question 3 - INCORRECT - ANSWER KEY MISMATCH //or whatever the problem was
-Question 4 - Correct
-Question 5 - Correct
-<Rewritten Version of the incorrect question - whole question, answer and solution of any incorrect questions>
-so final format for each question:
-Question <Q number> - <Correctness> - <Problem if incorrect>
+def generate_all_prompts_from_plan(plan, all_topics):
+    all_prompts = []
+    topic_index = 0
 
-this is only an example, be completely unbiased in determining the correctness and incorrectness. check and recheck multiple times the correctness
-Here are the questions:
-{questions_text}
-"""
-                
+    for qtype, total_questions in plan.items():
+        num_chunks = total_questions // CHUNK_SIZE
+        print(f"\n🧠 Generating {total_questions} '{qtype}' questions in {num_chunks} chunks...")
+        for _ in range(num_chunks):
+            topics_chunk = all_topics[topic_index: topic_index + CHUNK_SIZE]
+            topic_index += CHUNK_SIZE
+            prompt = build_prompt_from_template(topics_chunk, qtype)
+            all_prompts.append((qtype, prompt))
+    return all_prompts
+
+def check_file_access(filename):
+    try:
+        with open(filename, 'a'):
+            pass
+    except Exception as e:
+        raise IOError(f"❌ Cannot access {filename}. Please close it if open. Details: {e}")
+
 def call_gpt(prompt, retries=3):
     if TESTING:
         print("⚠️ MOCK GPT CALLED.")
@@ -105,28 +125,31 @@ def call_gpt(prompt, retries=3):
                 print(f"⚠️ GPT attempt {attempt+1} failed: {e}")
                 time.sleep(2)
         raise RuntimeError("❌ All GPT retries failed. Aborting to prevent wasted usage.")
+   
+def verify_prompt(questions_text):
+    return f"""
+VERIFICATION: im gonna send you 5 questions at once
+you have to check whether or not they are correct
+question, answer key, solution etc all should be 100% correct, if there is even a tiny fault or discrepancy, tell me
+be very precise and unbiased, check very carefully
+you dont need to repeat the questions and answers
+just thoroughly check them if they are written correctly and then tell me for each question if it is correct or not, free of discrepancies or not. Are the answer keys correct? Are the solutions logical? Are any options misleading or repeated?
+if there are any issues, tell me what and where they are, then tell me how to fix them
+Example format for verifying
+Question 1 - Correct
+Question 2 - Correct
+Question 3 - INCORRECT - ANSWER KEY MISMATCH //or whatever the problem was
+Question 4 - Correct
+Question 5 - Correct
+<Rewritten Version of the incorrect question - whole question, answer and solution of any incorrect questions>
+so final format for each question:
+Question <Q number> - <Correctness> - <Problem if incorrect>
 
-def check_file_access(filename):
-    try:
-        with open(filename, 'a'):
-            pass
-    except Exception as e:
-        raise IOError(f"❌ Cannot access {filename}. Please close it if open. Details: {e}")
-    
-def save_to_docx(content, filename="Questions.docx"):
-    try:
-        with open(filename, 'a'):
-            pass  # Attempt to open for append to check if it's locked
-    except Exception as e:
-        raise IOError(f"❌ Cannot access {filename}. Make sure it is closed. Details: {e}")
-
-    try:
-        doc = Document()
-        doc.add_paragraph(content)
-        doc.save(filename)
-    except Exception as e:
-        raise IOError(f"❌ Failed to save {filename}. Details: {e}")
-
+this is only an example, be completely unbiased in determining the correctness and incorrectness. check and recheck multiple times the correctness
+Here are the questions:
+{questions_text}
+"""
+   
 def save_response(text, folder="CS/RawResponses"):
     # Make sure folder exists
     os.makedirs(folder, exist_ok=True)
@@ -143,69 +166,20 @@ def save_response(text, folder="CS/RawResponses"):
     doc.add_paragraph(text)
     doc.save(path)
     print(f"✅ Response saved to: {path}")
+             
+def save_to_docx(content, filename="Questions.docx"):
+    try:
+        with open(filename, 'a'):
+            pass  # Attempt to open for append to check if it's locked
+    except Exception as e:
+        raise IOError(f"❌ Cannot access {filename}. Make sure it is closed. Details: {e}")
 
-# === INPUT HANDLING ===
-# def get_user_question_plan():
-#     print("📋 Available Question Types:")
-#     for i, qtype in enumerate(prompt_templates.keys(), 1):
-#         print(f"{i}. {qtype}")
-
-#     plan = {}
-#     print("\n✏️ Enter number of questions you want for each type (must be multiple of 5):")
-#     for qtype in prompt_templates.keys():
-#         while True:
-#             try:
-#                 num = int(input(f"How many '{qtype}' questions? "))
-#                 if num < 0:
-#                     print("❌ Enter a non-negative number.")
-#                     continue
-#                 if num % CHUNK_SIZE != 0:
-#                     print(f"⚠️ Must be a multiple of {CHUNK_SIZE}.")
-#                     continue
-#                 plan[qtype] = num
-#                 break
-#             except ValueError:
-#                 print("❌ Invalid input. Please enter a number.")
-#     return plan
-
-def get_user_question_plan():
-    print("📋 Available Question Types:")
-    for i, qtype in enumerate(prompt_templates.keys(), start=1):
-        print(f"{i}. {qtype}")
-    
-    plan = {}
-    while True:
-        try:
-            qtype_input = input("✍️ Enter question type name (or press Enter to finish): ").strip()
-            if qtype_input == "":
-                break
-            if qtype_input not in prompt_templates:
-                print("❌ Invalid question type. Try again.")
-                continue
-            count = int(input(f"🔢 How many questions of type '{qtype_input}' do you want? (must be multiple of {CHUNK_SIZE}): "))
-            if count % CHUNK_SIZE != 0:
-                print(f"⚠️ Must be a multiple of {CHUNK_SIZE}. Try again.")
-                continue
-            plan[qtype_input] = plan.get(qtype_input, 0) + count
-        except ValueError:
-            print("❌ Invalid number. Please try again.")
-    return plan
-
-
-# === GENERATION ===
-def generate_all_prompts_from_plan(plan, all_topics):
-    all_prompts = []
-    topic_index = 0
-
-    for qtype, total_questions in plan.items():
-        num_chunks = total_questions // CHUNK_SIZE
-        print(f"\n🧠 Generating {total_questions} '{qtype}' questions in {num_chunks} chunks...")
-        for _ in range(num_chunks):
-            topics_chunk = all_topics[topic_index: topic_index + CHUNK_SIZE]
-            topic_index += CHUNK_SIZE
-            prompt = build_prompt_from_template(topics_chunk, qtype)
-            all_prompts.append((qtype, prompt))
-    return all_prompts
+    try:
+        doc = Document()
+        doc.add_paragraph(content)
+        doc.save(filename)
+    except Exception as e:
+        raise IOError(f"❌ Failed to save {filename}. Details: {e}")
 
 # === MAIN EXECUTION ===
 if __name__ == "__main__":
@@ -240,12 +214,6 @@ if __name__ == "__main__":
             q.strip() for q in textwrap.dedent(generated_chunk).strip().split("--Question Starting--")
             if q.strip()
         ]
-
-        # if not TESTING and len(questions_split) != CHUNK_SIZE:
-        #     print("❌ Error: GPT did not return exactly 5 questions. Aborting.")
-        #     save_response(generated_chunk, folder="CS/BrokenChunks")
-        #     winsound.PlaySound("WrongBuzzer.wav", winsound.SND_FILENAME)
-        #     exit(1)
         
         if not TESTING and len(questions_split) != CHUNK_SIZE:
             print(f"⚠️ GPT returned {len(questions_split)} questions instead of {CHUNK_SIZE}. Skipping this chunk.")
