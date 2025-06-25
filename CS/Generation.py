@@ -9,17 +9,15 @@ from PromptsDict import prompt_templates  # Load the prompt dictionary
 import winsound
 from datetime import datetime
 
-# working code, checked twice with 15 questions asked each time (10+5 both times)
-
 # === CONFIGURATION ===
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 MODEL = 'gpt-4-turbo'
-EXCEL_PATH = "CS\\Syllabus.xlsx"
+EXCEL_PATH = "CS/Gen/Syllabus.xlsx"
 CHUNK_SIZE = 5
 TESTING = True
-QUESTIONS_PATH = "CS\\Questions.docx"
-VERIFICATIONS_PATH = "CS\\Verifications.docx"
-SKIPPED_PATH = "CS\\Skipped.docx"
+QUESTIONS_PATH = "CS/Gen/Questions.docx"
+VERIFICATIONS_PATH = "CS/Gen/Verifications.docx"
+SKIPPED_PATH = "CS/Gen/Skipped.docx"
 skipped_chunks = []
 
 
@@ -69,11 +67,11 @@ def validate_topic_capacity(plan, total_topics):
 def format_topics(topics_list):
     return "\n".join([f"{i+1}. {topic}" for i, topic in enumerate(topics_list)]) 
 
-def build_prompt_from_template(topics_list, template_key):
+def build_prompt_from_template(topics_list, template_key, num_of_questions):
     topics_str = format_topics(topics_list)
     randomized_answer_key = ', '.join(str(n) for n in random.choices(range(1, 5), k=5))
     template = prompt_templates.get(template_key, "")
-    return template.format(topics=topics_str, answer_key=randomized_answer_key)
+    return template.format(topics=topics_str, answer_key=randomized_answer_key, num = num_of_questions)
 
 def generate_all_prompts_from_plan(plan, all_topics):
     all_prompts = []
@@ -85,7 +83,7 @@ def generate_all_prompts_from_plan(plan, all_topics):
         for _ in range(num_chunks):
             topics_chunk = all_topics[topic_index: topic_index + CHUNK_SIZE]
             topic_index += CHUNK_SIZE
-            prompt = build_prompt_from_template(topics_chunk, qtype)
+            prompt = build_prompt_from_template(topics_chunk, qtype, "five")
             all_prompts.append((qtype, prompt))
     return all_prompts
 
@@ -96,17 +94,17 @@ def check_file_access(filename):
     except Exception as e:
         raise IOError(f"❌ Cannot access {filename}. Please close it if open. Details: {e}")
 
-def call_gpt(prompt, retries=3):
-    if TESTING:
+def call_gpt(prompt, testing, chunks, retries=3):
+    if testing:
         print("⚠️ MOCK GPT CALLED.")
         if "VERIFICATION" in prompt:
             return "\n".join([
-                f"Question {i+1} - Correct" for i in range(CHUNK_SIZE)
+                f"Question {i+1} - Correct" for i in range(chunks)
             ])
         else:
             return "\n\n".join(
                 [f"--Question Starting--\nQ{i+1}. Sample question on Topic.\nAnswer: {chr(65 + i%4)}\nExplanation: Because XYZ."
-                 for i in range(CHUNK_SIZE)]
+                 for i in range(chunks)]
             )
     else:
         for attempt in range(retries):
@@ -182,7 +180,7 @@ def save_to_docx(content, filename="Questions.docx"):
         raise IOError(f"❌ Failed to save {filename}. Details: {e}")
 
 # === MAIN EXECUTION ===
-if __name__ == "__main__":
+def GenerationMain(chunks):
     user_plan = get_user_question_plan()
     all_topics = load_all_topics()
     validate_topic_capacity(user_plan, all_topics)
@@ -201,7 +199,7 @@ if __name__ == "__main__":
     for qtype, prompt in generated_prompts:
         print(f"{qtype} : {prompt} \n\n")
         try:
-            generated_chunk = call_gpt(prompt)
+            generated_chunk = call_gpt(prompt, TESTING, chunks)
             print(generated_chunk)
         except Exception as e:
             print(e)
@@ -215,8 +213,8 @@ if __name__ == "__main__":
             if q.strip()
         ]
         
-        if not TESTING and len(questions_split) != CHUNK_SIZE:
-            print(f"⚠️ GPT returned {len(questions_split)} questions instead of {CHUNK_SIZE}. Skipping this chunk.")
+        if not TESTING and len(questions_split) != chunks:
+            print(f"⚠️ GPT returned {len(questions_split)} questions instead of {chunks}. Skipping this chunk.")
             skipped_chunks.append(questions_split)
             continue
 
@@ -236,9 +234,9 @@ if __name__ == "__main__":
         exit(1)
 
     verified_output = ""
-    for i in range(0, len(all_questions), CHUNK_SIZE):
-        chunk = all_questions[i:i+CHUNK_SIZE]
-        if len(chunk) < CHUNK_SIZE:
+    for i in range(0, len(all_questions), chunks):
+        chunk = all_questions[i:i+chunks]
+        if len(chunk) < chunks:
             print(f"⚠️ Skipping incomplete chunk at end of generation (less than 5 questions).")
             skipped_chunks.append(chunk)
             continue
@@ -247,7 +245,7 @@ if __name__ == "__main__":
 
         # Verify the chunk via GPTtry:
         try:
-            verification = call_gpt(verify_prompt(combined_text))
+            verification = call_gpt(verify_prompt(combined_text), TESTING, chunks)
         except Exception as e:
             print(e)
             winsound.PlaySound("WrongBuzzer.wav", winsound.SND_FILENAME)
@@ -275,3 +273,5 @@ if __name__ == "__main__":
     print("\n✅ Shuffled and verified mock paper saved.")
     winsound.PlaySound("CorrectHarp.wav", winsound.SND_FILENAME)
 
+if __name__ == "__main__":
+    GenerationMain(CHUNK_SIZE)
