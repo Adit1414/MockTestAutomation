@@ -15,6 +15,7 @@ MODEL = 'gpt-4-turbo'
 EXCEL_PATH = "CS/Gen/Syllabus.xlsx"
 CHUNK_SIZE = 5
 TESTING = True
+EXAM = "UGC NET"
 QUESTIONS_PATH = "CS/Gen/Questions.docx"
 VERIFICATIONS_PATH = "CS/Gen/Verifications.docx"
 SKIPPED_PATH = "CS/Gen/Skipped.docx"
@@ -71,7 +72,7 @@ def build_prompt_from_template(topics_list, template_key, num_of_questions):
     topics_str = format_topics(topics_list)
     randomized_answer_key = ', '.join(str(n) for n in random.choices(range(1, 5), k=5))
     template = prompt_templates.get(template_key, "")
-    return template.format(topics=topics_str, answer_key=randomized_answer_key, num = num_of_questions)
+    return template.format(topics=topics_str, answer_key=randomized_answer_key, num = num_of_questions, exam = EXAM)
 
 def generate_all_prompts_from_plan(plan, all_topics):
     all_prompts = []

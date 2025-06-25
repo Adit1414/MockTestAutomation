@@ -11,6 +11,7 @@ from PromptsDict import prompt_templates
 
 TESTING = False
 CHUNK_SIZE = 3
+EXAM = "UGC NET"
 CHAPTER_XLSX = "CS/Chapter/ChapterSyllabus.xlsx"
 QUESTIONS_PATH = "CS/Chapter/ChapterQuestions.docx"
 VERIFICATIONS_PATH = "CS/Chapter/ChapterVerifications.docx"
@@ -134,7 +135,7 @@ def ChapterTestMain():
             selected_qtype = qtypes[i // CHUNK_SIZE]
             topics_str = "\n".join([f"{j+1}. {t}" for j, t in enumerate(chunk_topics)])
             randomized_answer_key = ', '.join(str(n) for n in random.choices(range(1, 5), k=3))
-            prompt = prompt_templates[selected_qtype].format(topics=topics_str, answer_key=randomized_answer_key, num = "three")
+            prompt = prompt_templates[selected_qtype].format(topics=topics_str, answer_key=randomized_answer_key, num = "three", exam = EXAM)
 
             print(f"\nPrompt ({selected_qtype}) for {chapter}:")
             print(prompt)
