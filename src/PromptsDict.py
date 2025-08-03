@@ -3,9 +3,8 @@ prompt_templates = {
 topics - 
 {topics}
 
-difficulty -  EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. create {num} - Match The Following type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. 
@@ -52,56 +51,15 @@ Solution:
 Hence, Option (1) is the right answer.
 """,
 
-    "MCQ": """MCQ type
-topics - 
-{topics}
-difficulty -  EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
-so please give appropriately tough questions
-answer key: {answer_key}
-arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. 
-create {num} - MCQ type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY exact format -
-
---Question Starting--
-1. A company sets up a data communication system between its branch offices using leased lines and routers. The network experiences delays and occasional packet losses during peak hours. The company’s IT department decides to analyze the issue by inspecting transmission delays, propagation delays, and the role of switching techniques and protocols used for error handling.
-Which of the following best explains the delay that increases with packet queue build-up at routers during peak traffic?
-(1)	Propagation delay
-(2)	Transmission delay
-(3)	Queuing delay
-(4)	Processing delay
-Answer Key: 3
-Solution: 
-•	Option 3 (Correct): Queuing delay occurs when packets wait in the queue before being forwarded. This increases significantly during network congestion, as mentioned in the case.
-•	Option 1 (Incorrect): Propagation delay depends on physical distance and medium.
-•	Option 2 (Incorrect): Transmission delay depends on data size and link bandwidth.
-•	Option 4 (Incorrect): Processing delay is minor and occurs at headers inspection or route lookup.
-Hence, Option (3) is the right answer.
-
---Question Starting--
-2. If a graph has V vertices and E edges, and is connected and acyclic, then E must be:
-(1)	V²
-(2)	V-1
-(3)	V
-(4)	V+1
-Answer Key: 2	
-Solution:
-•	Option 2 (Correct): A connected acyclic graph is a tree, and in a tree with V vertices, there are always V-1 edges.
-•	Option 1 (Incorrect): ‘V2’ is only true for complete graphs.
-•	Option 3 (Incorrect): ‘V’ Implies a cycle.
-•	Option 4 (Incorrect): More than V-1 implies a cycle.
-Hence, Option (2) is the right answer.
-""",
     "2S": """2 statement type
 topics - 
 {topics}
-difficulty -  EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. 
-create {num} - 2 statement type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 sentence each and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY exact format -
+create {num} - 2 statement type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY exact format -
 
 --Question Starting--
 1. Consider the following two statements related to parsing techniques:
@@ -137,10 +95,8 @@ Hence, Option (1) is the right answer.""",
     "3S" : """3 statement type
 topics - 
 {topics}
-
-difficulty - EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
@@ -187,13 +143,12 @@ General formula for n flip-flops, Johnson counter → 2n states.
 For 4 bits: 2 × 4 = 8 unique states.
 A normal binary counter would go through 2⁴ = 16 states, but not a Johnson counter.
 Hence, Option (3) is the right answer.""",
+
     "4S": """4 statement type
 topics - 
 {topics}
-
-difficulty - EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
@@ -231,11 +186,12 @@ Choose the correct answer from the options given below:
 (4)	All of the above
 Answer Key: 1
 Solution:
-•	Statement I(Correct): Windows uses a hybrid kernel, which combines features of both monolithic kernels (like direct hardware interaction) and microkernels (like modularity). It’s not strictly microkernel or monolithic, but merges performance with modularity.
+•	Statement I(Correct): Windows uses a hybrid kernel, which combines features of both monolithic kernels (like direct hardware interaction) and microkernels (like modularity). It's not strictly microkernel or monolithic, but merges performance with modularity.
 •	Statement II(Correct): Windows uses a preemptive, priority-based scheduling algorithm for threads. Threads with higher priority preempt lower-priority ones and the scheduler also considers quantum expiration for fair CPU distribution.
 •	Statement III(Incorrect): NTFS supports file-level security via Access Control Lists (ACLs), journaling for fault tolerance and recoverability, compression, encryption, and disk quotas.
 •	Statement IV(Incorrect): Windows services can be set to start automatically during system boot (e.g., DHCP Client, Windows Update), and can also be manually started via GUI (Services.msc) or command-line (sc, net start). Hence, not limited to manual start only.
 Hence, Option (1) is the right answer.""",
+
     "5S": """5 statement type
 topics - 
 {topics}
@@ -262,14 +218,14 @@ Choose the correct answer from the options given below:
 (4)	I, III, IV and V only
 Answer Key: 2
 Solution:
-•	Statement I(Correct): In a non-pipelined processor, each instruction must go through all stages sequentially. So, time to execute n instructions = n × k clock cycles.
+•	Statement I(Correct): In a non-pipelined processor, each instruction must go through all stages sequentially. So, time to execute n instructions = n x k clock cycles.
 No overlap of stages = linear increase in time.
-•	Statement II(Correct): Vector processors use deep pipelines and vector registers. They’re optimized for data-parallel tasks such as array processing, matrix operations, etc.
+•	Statement II(Correct): Vector processors use deep pipelines and vector registers. They're optimized for data-parallel tasks such as array processing, matrix operations, etc.
 For example: Cray vector machines.
 •	Statement IV(Correct): There are three types of pipeline hazards:
-Structural hazard – due to resource conflicts
-Data hazard – due to data dependencies
-Control hazard – due to branch/instruction flow changes
+Structural hazard - due to resource conflicts
+Data hazard - due to data dependencies
+Control hazard - due to branch/instruction flow changes
 •	Statement V(Correct): In ideal pipelining, time to execute n instructions = n + k - 1 cycles, where k is the number of stages. This accounts for pipeline filling and draining.
 •	Statement III(Incorrect): Instruction-Level Parallelism (ILP) is also exploited in vector processors, especially pipelined vector units. Scalar pipelines exploit ILP via superscalar/multicycle techniques, but vector processors also use ILP efficiently for vector operations. Hence, the distinction is not exclusive.
 Hence, Option (2) is the right answer.
@@ -290,24 +246,24 @@ Answer Key: 3
 Solution:
 •	Statement I(Correct): In A\* search, the heuristic h(n) must be admissible (never overestimates cost) and consistent (also known as monotonic) to ensure optimality. This is a foundational requirement for A\* to always find the shortest path.
 •	Statement III(Correct): Minimax is used in two-player zero-sum games and assumes that both players play optimally. The opponent's optimal moves are simulated to determine the best move for the player.
-•	Statement IV(Correct): Alpha-Beta pruning improves efficiency of minimax by pruning branches that won’t affect the final decision. It doesn’t change the result, only reduces search time.
+•	Statement IV(Correct): Alpha-Beta pruning improves efficiency of minimax by pruning branches that won't affect the final decision. It doesn't change the result, only reduces search time.
 •	Statement II(Incorrect): Hill Climbing is not complete and often gets stuck in local maxima, even with a monotonic heuristic. It lacks backtracking and may fail even when a solution exists.
 •	Statement V(Incorrect): Genetic Algorithms are based on evolutionary principles like selection, crossover, and mutation. They are not based on reinforcement learning, which uses reward signals to learn policies.
 Hence, Option (3) is the right answer.""",
+
     "SL": """Single liner type
 topics - 
 {topics}
-difficulty -  EXTREMELY HARD, EXTREMELY ANALYTICAL - each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
-so please give appropriately tough questions 
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line. 
 Create {num} - single liner type questions like this, one question should be from each topic provided - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end of each solution. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY exact format -
 
 --Question Starting--
 1. A team of developers built an e-commerce web application using the MERN stack. During staging, they conducted performance testing using JMeter and identified issues with concurrent request handling. The security team later flagged improper session termination and vulnerable endpoints. Before production deployment, they integrated the CI/CD pipeline with automated testing tools and containerized the app using Docker. 
-Which of the following doesn’t address the issues raised in the testing and deployment stages?
+Which of the following doesn't address the issues raised in the testing and deployment stages?
 (1)	Implementing rate-limiting and horizontal scaling can improve concurrent request handling.
 (2)	CI/CD pipelines alone are sufficient to prevent all security vulnerabilities.
 (3)	Docker ensures consistent environments, aiding in reproducible deployment.
@@ -332,20 +288,20 @@ Answer Key: 3
 Solution:
 •	Option 3 (Correct): This is the most suitable step. Here, InstructorName is dependent on CourseName, and not directly on the primary key. This is a transitive dependency, and to move to 3NF, we should separate course-instructor mapping into another table.
 •	Option 1 (Incorrect): This only eliminates partial dependencies, which occur when non-prime attributes are dependent on part of a composite key. But in the case, InstructorName depends on CourseName, which is a transitive dependency, not a partial one.
-•	Option 2 (Incorrect): 1NF only ensures atomicity of values and removes repeating groups. This won’t solve redundancy or update anomalies in the case described.
+•	Option 2 (Incorrect): 1NF only ensures atomicity of values and removes repeating groups. This won't solve redundancy or update anomalies in the case described.
 •	Option 4 (Incorrect): BCNF handles anomalies due to overlapping candidate keys, but the case here is about transitive dependencies, not key overlaps. Also, multivalued dependencies are handled in Fourth Normal Form (4NF), not BCNF.
 Hence, Option (3) is the right answer.""",
+
     "AR": """AR
 topics - 
 {topics}
-difficulty - EXTREMELY HARD, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
-when i ask for extremely difficult questions, i MEAN extremely difficult. no direct applications.
-i want them to be really analytical, ones that take several seconds of thought atleast
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
 so please give appropriately tough questions
 answer key: {answer_key}
 arrange the options such that the answer key is true. make sure you generate exactly {num} questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
 Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. arrange the options such that the answer key is true. remember to add the hence line at the end of each solution. 
-create {num} assertion reasoning type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and explain all major keywords in 1 setence each and dont type anything like topic name or intro etc. just what i asked. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY EXACT format - format -
+create {num} assertion reasoning type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY EXACT format - format -
 
 --Question Starting--
 1. Given below are two statements, one is labelled as Assertion (A) and the other is
@@ -380,5 +336,179 @@ Solution:
 int a = 5;
 a = 10;  // if 'a' is never used afterward, the assignment is dead code.
 •	So, Assertion is correct, but Reason is incorrect.
+Hence, Option (3) is the right answer.""",
+
+    "CS" : """Case Study
+topic - 
+{topics}
+arrange the questions such that the answer key is - {answer_key}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
+{num} more case study type questions like this - a lot harder, very very analytical. very {exam} type. remember to add the hence line at the end - important. longer and better explanation and dont type anything like topic or intro etc. just what i asked. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. 
+
+make sure you create exactly {num} questions, one from each topic and make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens and use this exact format - format -
+
+--Question Starting--
+1. A public service campaign utilizes television commercials, social media, and community health workers to disseminate information about the importance of vaccination for children and to address misinformation about vaccine safety. This initiative aims to improve child health outcomes and reduce the prevalence of preventable diseases.
+
+According to the principles of development communication, which critical societal issue is this campaign primarily addressing?
+(1) Population growth
+(2) Health disparities
+(3) Human rights violations
+(4) Rural and tribal development
+Answer Key: (2) 
+Solution:
+Option (2) is correct: The public service campaign focuses on disseminating crucial health information regarding childhood vaccinations and countering misinformation. The primary goal is to improve child health outcomes and reduce the occurrence of preventable diseases. This directly aligns with the aims of development communication in addressing health disparities by promoting health awareness, ensuring access to vital health knowledge, and ultimately working towards equitable health outcomes for children.
+Option (1) is incorrect:  The population growth, is not the central focus of a vaccination campaign, although child health can indirectly influence population dynamics over time.
+Option (3) is incorrect: The human rights violations, while important, is not the primary issue being tackled by a vaccination campaign. Access to healthcare can be considered a human right, but the campaign's direct focus is on health and disease prevention. 
+Option (4) is incorrect: The rural and tribal development, while these communities might be specific targets for vaccination efforts due to potential disparities in access, the overarching societal issue being addressed by a widespread public service campaign on vaccination is broader than just these specific populations. The campaign aims to improve child health across all segments of society.
+Hence, the correct answer is Option (2).""",
+
+"CH" : """Chronology
+topics - 
+{topics}
+answer keys - {answer_key}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
+arrange the options such that the answer key is true. create {num} chronology type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc.  just what i asked. remember to add the hence line at the end - important.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. 
+make sure you create exactly {num} questions, one from each topic and make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens and use this VERY exact format -
+
+--Question Starting--
+1. What is the correct physiological sequence of events involved in the absorption and regulation of sodium within the human body?
+I. Sodium Movement via Na⁺/K⁺ Pump
+II. Co-transport with Nutrients  
+III. Reabsorption by Kidneys
+IV. Absorption Driven by Bulk Flow
+V. Hormonal Control and Excretion 
+Choose the correct answer from the options given below:
+(1) I, III, II, V, IV
+(2) II, I, IV, III, V 
+(3) II, I, III, IV, V
+(4) I, II, III, V, IV
+Answer Key: (2)
+Solution:
+
+Statement II - The initial site of sodium absorption and control is the small intestine. The sodium is absorbed through co-transport processes, with glucose or amino acids, particularly in the duodenum and jejunum.
+Statement I - The Na+/K+-ATPase pump actively transports sodium into the bloodstream once it enters intestinal cells, preserving the concentration gradient necessary for further absorption.
+Statement IV - The osmotic movement of fluids known as bulk flow play an additional role in sodium absorption by the body.
+Statement III - Sodium regulation through the kidney occurs when these organs take up filtered salt following the absorption process.
+Statement V - Aldosterone regulates how much sodium the body either keeps or releases depending on its needs thus supporting both fluid stability and proper functions of neurons and muscles.
+Hence, the correct answer is Option (2).""",
+"FU":"""fill blanks 
+topic - 
+{topics}
+
+answer key - {answer_key}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questionstype - {exam}
+create {num} fill in the blanks type questions like this - very very analytical. and unique. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. remember to add the hence line at the end - important.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. 
+make sure you create exactly {num} questions, one from each topic and make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens and use this VERY exact format  - format - 
+ 
+--Question Starting--
+1. Quality Assurance emphasizes ________ defects rather than just detecting them.
+(1) Ignoring
+(2) Documenting
+(3) Preventing
+(4) Highlighting
+Answer Key: (3)
+Solution:
+Option (3) is correct. Quality Assurance (QA) focuses on building quality into the process itself to ensure that defects are avoided from the beginning.
+Option (1) is incorrect. QA never ignores potential defects; it actively works to eliminate them.
+Option (2) is incorrect. Documenting refers to recording information. It does not address the goal - prevention of QA.
+Option (4) is incorrect. Highlighting involves pointing out defects after they occur, which is more aligned with Quality Control activities.
+Thus, the correct answer is Option (3).""",
+
+"CS" : """Case Study
+topic - 
+{topics}
+arrange the questions such that the answer key is - {answer_key}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
+{num} more case study type questions like this - a lot harder, very very analytical. very {exam} type. remember to add the hence line at the end - important. longer and better explanation and dont type anything like topic or intro etc. just what i asked. Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. 
+
+make sure you create exactly {num} questions, one from each topic and make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens and use this exact format - format -
+
+--Question Starting--
+1. A public service campaign utilizes television commercials, social media, and community health workers to disseminate information about the importance of vaccination for children and to address misinformation about vaccine safety. This initiative aims to improve child health outcomes and reduce the prevalence of preventable diseases.
+
+According to the principles of development communication, which critical societal issue is this campaign primarily addressing?
+(1) Population growth
+(2) Health disparities
+(3) Human rights violations
+(4) Rural and tribal development
+Answer Key: (2) 
+Solution:
+Option (2) is correct: The public service campaign focuses on disseminating crucial health information regarding childhood vaccinations and countering misinformation. The primary goal is to improve child health outcomes and reduce the occurrence of preventable diseases. This directly aligns with the aims of development communication in addressing health disparities by promoting health awareness, ensuring access to vital health knowledge, and ultimately working towards equitable health outcomes for children.
+Option (1) is incorrect:  The population growth, is not the central focus of a vaccination campaign, although child health can indirectly influence population dynamics over time.
+Option (3) is incorrect: The human rights violations, while important, is not the primary issue being tackled by a vaccination campaign. Access to healthcare can be considered a human right, but the campaign's direct focus is on health and disease prevention. 
+Option (4) is incorrect: The rural and tribal development, while these communities might be specific targets for vaccination efforts due to potential disparities in access, the overarching societal issue being addressed by a widespread public service campaign on vaccination is broader than just these specific populations. The campaign aims to improve child health across all segments of society.
+Hence, the correct answer is Option (2).""",
+
+"MCQ" : """MSQ
+
+answer key - {answer_key}
+topic - {topics}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
+create {num} msq type questions with multiple being selected- very {exam} type . arrange the options such that the answer key is true. longer and better explanation and dont type anything like topic or intro etc. just what i asked. remember that msq type questions' options are always short and of only 1 to 4 words max. remember to add the hence line at the end of each solution.  Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. 
+make sure you create exactly {num} questions, one from each topic and make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens and use this VERY exact format -
+
+--Question Starting--
+23.Which of the following statements about FCFS (First Come First Serve) scheduling are correct?
+I.FCFS scheduling can lead to convoy effect.
+II.Average waiting time is minimum in FCFS.
+III.FCFS scheduling is non-preemptive.
+IV.Processes are scheduled in the order they arrive.
+Choose the correct answer from the options given below:
+(1)I, II, and III only
+(2)II and III only
+(3)I, III, and IV only
+(4)All of the above
+Answer Key: 3
+Solution:
+Statement I (Correct): Convoy effect happens when short processes wait for a long process in FCFS.
+Statement II(Incorrect): FCFS does not guarantee minimum average waiting time (SJF does that).
+Statement III(Correct): FCFS is non-preemptive.
+Statement IV(Correct): FCFS schedules purely based on arrival time.
+Hence, the correct answer is Option (3).""",
+
+"NU" : """Numerical Type Questions
+topics - 
+{topics}
+difficulty - MODERATE, EXTREMELY ANALYTICAL- each question should be distinct and dont follow the same kind of pattern for each question.
+no direct applications. i want them to be really analytical, ones that take several seconds of thought atleast
+so please give appropriately tough questions
+answer key: {answer_key}
+arrange the options such that the answer key is true. make sure you generate exactly {num} numerical questions, one for each topic, make sure that the answer key ive provided is absolutely correct, shows in the questions you give, and matches correctly with the options, solution and the hence line.  
+Check for any discrepancies or issues with the question, answer key and solutions. Check if any options are wrongly marked or any options are similar to each other - check each 50 times before sending it. arrange the options such that the answer key is true. remember to add the hence line at the end of each solution. 
+create {num} numerical type questions like this - very {exam} type, and very analytical. a lot longer and better explanation and dont type anything like topic name or intro etc. just what i asked. make sure to start every question with "--Question Starting--", this is extremely important, make sure that happens, and use this VERY EXACT format - format -
+
+--Question Starting--
+A box contains 5 red, 4 blue, and 3 green balls. If 3 balls are drawn at random without
+replacement, what is the probability that all three are of different colors?
+(1) 5/11
+(2) 7/11
+(3) 3/11
+(4) None of the above
+Answer Key: 3
+Solution:
+Step 1: Total number of ways to choose 3 balls out of 12
+12 Total ways = ( 12 3 )
+= 12x11x10 / 3x2x1
+= 220
+Step 2: Favorable outcomes (1 red, 1 blue, 1 green)
+We need:
+Choose 1 red out of 5: ( 5 1 ) = 5
+Choose 1 blue out of 4: ( 4 1 ) = 4
+Choose 1 green out of 3: ( 3 1 )=3
+Favorable outcomes = 5:4:3 = 60
+Step 3: Required Probability
+P(all different colors) = 60/220
+= 3/11
 Hence, Option (3) is the right answer."""
 }
